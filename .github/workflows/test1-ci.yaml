@@ -17,6 +17,6 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Build
-        run: cd test1 && dotnet build --configuration Release --no-restore
+        run: cd test1 && dotnet build
       - name: Test
-        run: cd test1 && dotnet test --no-restore --verbosity normal
+        run: cd test1 && dotnet test
