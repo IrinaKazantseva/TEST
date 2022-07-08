@@ -10,4 +10,6 @@ if (numberA == square)
 Console.WriteLine("первое число - квадрат второго");
 }
 else
+{
 Console.WriteLine("первое число не квадрат второго");
+}
