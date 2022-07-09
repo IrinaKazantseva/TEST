@@ -10,7 +10,7 @@ jobs:
           run: echo "::set-output name=paths::$(find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .)"
       outputs:
         paths: ${{ steps.set-matrix.outputs.paths }}
-    ci:
+
 
   build:
 
