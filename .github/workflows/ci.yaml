@@ -3,6 +3,15 @@ name: test1 ci
 on: [push]
 
 jobs:
+  build-matrix:
+    runs-on: ubuntu-latest
+      steps:
+        - id: set-matrix
+          run: echo "::set-output name=paths::$(find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .)"
+      outputs:
+        paths: ${{ steps.set-matrix.outputs.paths }}
+    ci:
+
   build:
 
     runs-on: ubuntu-latest
@@ -10,6 +19,7 @@ jobs:
       matrix:
         dotnet-version: ['6.0.x' ]
         project: ['HomeWork/Task_2_Max_of_Two_numbers', 'HomeWork/Task_4_Max_of_Three_numbers', 'HomeWork/Task_4_Max_of_Three_numbers_Extended', 'HomeWork/Task_6_Even_Number', 'HomeWork/Task_8_All_Even_Numbers',]
+        paths: ${{ steps.set-matrix.outputs.paths }}
 
     steps:
       - uses: actions/checkout@v3
