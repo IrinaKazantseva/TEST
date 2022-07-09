@@ -9,11 +9,17 @@ if (Number1 == Number2)
 }
 else if (Number1 > Number2)
 {
-    Console.Write("max = ");
+    Console.Write("большее число = ");
     Console.WriteLine(Number1);
+    Console.Write("меньшее число = ");
+    Console.WriteLine(Number2);
+
 }
 else
 {
-    Console.Write("max = ");
+    Console.Write("большее число = ");
     Console.WriteLine(Number2);
+    Console.Write("меньшее число = ");
+    Console.WriteLine(Number1);
+
 }
