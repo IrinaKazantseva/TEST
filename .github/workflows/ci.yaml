@@ -5,11 +5,11 @@ on: [push]
 jobs:
   build-matrix:
     runs-on: ubuntu-latest
-      steps:
-        - id: set-matrix
-          run: echo "::set-output name=paths::$(find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .)"
-      outputs:
-        paths: ${{ steps.set-matrix.outputs.paths }}
+    steps:
+      - id: set-matrix
+        run: echo "::set-output name=paths::$(find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .)"
+    outputs:
+      paths: ${{ steps.set-matrix.outputs.paths }}
 
 
   build:
