@@ -5,7 +5,6 @@ int Number2 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите число 3: ");
 int Number3 = Convert.ToInt32(Console.ReadLine());
 
-
 if (Number2 > Number1)
 {
     if (Number2 > Number3)
