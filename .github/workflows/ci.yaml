@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         dotnet-version: ['6.0.x' ]
-        project: ['seminar1']
+        project: ['HomeWork/Task_2_Max_of_Two_numbers']
 
     steps:
       - uses: actions/checkout@v3
