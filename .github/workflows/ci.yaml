@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: set-matrix
-        run: echo "::set-output name=path_matrix::$(find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .)"
+        run: echo "::set-output name=path_matrix::$(find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .) | tr -d '\n'"
     outputs:
       path_matrix: ${{ steps.set-matrix.outputs.path_matrix }}
 
