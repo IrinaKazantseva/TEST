@@ -1,35 +1,28 @@
-name: test1 ci
+name: continuous integration
 
 on: [push]
 
 jobs:
-  build-matrix:
+  detect-apps:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - id: debug
-        run: find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .
       - id: set-matrix
-        run: echo "::set-output name=paths::$(find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .)"
+        run: echo "::set-output name=path_matrix::$(find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp . | tr -d '\n')"
     outputs:
-      paths: ${{ steps.set-matrix.outputs.paths }}
-
+      path_matrix: ${{ steps.set-matrix.outputs.path_matrix }}
 
   build:
     runs-on: ubuntu-latest
-    needs: build-matrix
+    needs: detect-apps
     strategy:
       matrix:
-        dotnet-version: ['6.0.x' ]
-        project: ['HomeWork/Task_2_Max_of_Two_numbers', 'HomeWork/Task_4_Max_of_Three_numbers', 'HomeWork/Task_4_Max_of_Three_numbers_Extended', 'HomeWork/Task_6_Even_Number', 'HomeWork/Task_8_All_Even_Numbers',]
-        paths: ${{ fromJson(needs.build-matrix.outputs.paths) }}
+        path: ${{ fromJson(needs.detect-apps.outputs.path_matrix) }}
     steps:
       - uses: actions/checkout@v3
-      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+      - name: Setup .NET Core SDK 6.0
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Build
-        run: cd ${{ matrix.project }} && dotnet build
-      - name: Test
-        run: cd ${{ matrix.project }} && dotnet test 
+          dotnet-version: '6.0.x'
+      - name: Build ${{ matrix.path }}
+        run: cd ${{ matrix.path }} && dotnet build
