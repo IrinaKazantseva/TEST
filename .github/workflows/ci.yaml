@@ -7,21 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - id: debug
-        run: find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .
       - id: set-matrix
-#         run: echo "::set-output name=path::$(find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .)"
-        run: echo '::set-output name=path::["./HomeWork/Task_8_All_Even_Numbers"]'
+        run: echo "::set-output name=path_matrix::$(find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .)"
     outputs:
-      path: ${{ steps.set-matrix.outputs.path }}
-
+      path_matrix: ${{ steps.set-matrix.outputs.path }}
 
   build:
     runs-on: ubuntu-latest
     needs: build-matrix
     strategy:
       matrix:
-        path: ${{ fromJson(needs.build-matrix.outputs.path) }}
+        path: ${{ fromJson(needs.build-matrix.outputs.path_matrix) }}
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET Core SDK 6.0
@@ -29,6 +25,6 @@ jobs:
         with:
           dotnet-version: '6.0.x'
       - name: Build
-        run: cd ${{ matrix.paths }} && dotnet build
+        run: cd ${{ matrix.path }} && dotnet build
       - name: Test
-        run: cd ${{ matrix.paths }} && dotnet test
+        run: cd ${{ matrix.path }} && dotnet test
