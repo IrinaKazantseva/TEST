@@ -19,6 +19,7 @@ jobs:
     strategy:
       matrix:
         project: ['HomeWork/Task_2_Max_of_Two_numbers', 'HomeWork/Task_4_Max_of_Three_numbers', 'HomeWork/Task_4_Max_of_Three_numbers_Extended', 'HomeWork/Task_6_Even_Number', 'HomeWork/Task_8_All_Even_Numbers',]
+        paths: ${{ fromJson(needs.build-matrix.outputs.paths) }}
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
