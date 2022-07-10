@@ -10,7 +10,7 @@ jobs:
       - id: set-matrix
         run: echo "::set-output name=path_matrix::$(find . -type f -name '*.csproj' | sed -r 's|/[^/]+$||' | jq --raw-input . | jq --slurp .)"
     outputs:
-      path_matrix: ${{ steps.set-matrix.outputs.path }}
+      path_matrix: ${{ steps.set-matrix.outputs.path_matrix }}
 
   build:
     runs-on: ubuntu-latest
