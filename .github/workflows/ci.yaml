@@ -19,7 +19,6 @@ jobs:
       matrix:
         path: ${{ fromJson(needs.build-matrix.outputs.path_matrix) }}
     steps:
-        - run: echo ${{ needs.build-matrix.outputs.path_matrix }}
       - uses: actions/checkout@v3
       - name: Setup .NET Core SDK 6.0
         uses: actions/setup-dotnet@v2
