@@ -1,6 +1,6 @@
 ﻿
 
-int OrigNumber = new Random().Next(-2147483648, 2147483647);
+int OrigNumber = new Random().Next(System.Int32.MinValue, System.Int32.MaxValue);
 
 Console.WriteLine($"Наше случайное число = {OrigNumber}");
 
