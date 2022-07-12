@@ -7,6 +7,7 @@ int numberA = Convert.ToInt32(Console.ReadLine());
 if (numberB % numberA == 0)
 {
 Console.WriteLine("число 1 кратно числу 2");
+// Console.WriteLine($"Число {numberB} нацело делится на число {numberA}");
 }
 else
 {
