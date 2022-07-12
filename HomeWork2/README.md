@@ -4,7 +4,7 @@
 
 [*Task_13_Third_Digit_Of_Number*](https://github.com/IrinaKazantseva/TEST/tree/main/HomeWork2/Task_13_Third_Digit_Of_Number) - **Задача 13**: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет. 
 
-[*Task_13_Third_Digit_Of_Number_Negative_Included*](https://github.com/IrinaKazantseva/TEST/tree/main/HomeWork2/Task_13_Third_Digit_Of_Number_Negative_Included) - **Задача 13**, Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет. Учтены отрицательные числа.
+[*Task_13_Third_Digit_Of_Number_Negative_Included*](https://github.com/IrinaKazantseva/TEST/tree/main/HomeWork2/Task_13_Third_Digit_Of_Number_Negative_Included) - **Задача 13**: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет. Учтены отрицательные числа.
 
 [*Task_15_Weekend*](https://github.com/IrinaKazantseva/TEST/tree/main/HomeWork2/Task_15_Weekend) - **Задача 15**: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным. Решение через оператор switch.
 
