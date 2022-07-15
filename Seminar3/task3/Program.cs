@@ -16,3 +16,5 @@ int[] array2 = new int [] {x2, y2};
 double distance = Math.Sqrt(Math.Pow(array2[0] - array1[0], 2) + Math.Pow(array2[1] - array1[1], 2));
 
 Console.WriteLine(distance);
+
+//double distance = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2)); решение без массива
