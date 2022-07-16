@@ -6,13 +6,13 @@ int count = 1;
 
 if (N > 0)
 {
-Console.WriteLine($"Таблица кубов чисел от 1 до {N}: ");
+    Console.WriteLine($"Таблица кубов чисел от 1 до {N}: ");
 
-while (count <= N)
-{
-    Console.WriteLine(Math.Pow(count, 3));
-    count++;
-}
+    while (count <= N)
+    {
+        Console.WriteLine(Math.Pow(count, 3));
+        count++;
+    }
 }
 else
 {
